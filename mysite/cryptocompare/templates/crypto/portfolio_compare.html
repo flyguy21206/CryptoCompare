@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load humanize %} 
+{% block content %}
+
+<div class = "jumbotron">
+  <h1><center>Compare! </h1></center>
+</div>
+
+<table class = "table table-dark table-hover">
+  
+
+  <thead>
+ 
+    <tr>
+
+        <th scope="col">Name</th>
+        <th scope="col">Logo</th>
+        <th scope="col">Price</th>
+        <th scope="col">High</th>
+        <th scope="col">Low</th>
+        <th scope="col">Day Change</th>
+        <th scope="col">Percent Day Change</th>
+
+
+</thead>
+<tbody>
+ 
+      {% for coin_name, image, price, high, low, daychange, daypercentchange in final_list %}
+                      
+            <td class ="align-middle">{{ coin_name }} </td>
+            <td class ="align-middle"><img src="{{ image }}" height="50px" alt="Coin Logo"></td>
+            <td class ="align-middle">${{ price }}</td>
+            <td class ="align-middle">${{ high }}</td>
+            <td class ="align-middle">${{ low }}</td>
+            <td class ="align-middle">${{ daychange }}</td>
+            <td class ="align-middle">{{ daypercentchange }}%</td>
+            </div>
+    </tr>
+    {% endfor %}
+    </tbody>
+   
+  </table></div>
+ 
+     <!-- Button to Open the Modal -->
+  <div class="btn-group text-center ">
+ <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+   Add Crypto to Compare</button>
+  </div>
+  <div class="btn-group text-center">
+    <form action="{% url 'cryptocompare:delete_crypto' %}" method="POST">
+    {% csrf_token %}
+      <button type="submit" class="btn btn-danger" value="Clear">Clear Selections</button>
+  </form>
+</div>
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Please enter full Crypto name below in lower case letters</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form method="POST" >
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="coin_name"></label>
+            <input type="text" class="form-control" id="coin_name" placeholder="cryptoname" name="coin_name">
+          </div>
+          <button type="submit" class="btn btn-success">Add</button>
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+      
+ 
+      
+
+{% endblock %}

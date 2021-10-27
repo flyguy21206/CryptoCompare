@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="login">
+    <h1>Login to Crypto Made Easy</h1>
+ 
+<form method="post">
+    {% csrf_token %}
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" placeholder="Username"><br>
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" placeholder="Password"><br>
+    <input type="submit" value="Login">
+  </form>
+  <label>
+    <input type="checkbox" name="remember_me" id="remember_me">
+    Remember me on this computer
+  </label>
+  <div class="login-help">
+    <p>Forgot your password? <a href="#">Click here to reset it</a>.</p>
+  </div>
+{% endblock %}
