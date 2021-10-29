@@ -24,7 +24,7 @@
 
 </thead>
 <tbody>
- 
+  {% if user.is_authenticated %} 
       {% for coin_name, image, price, high, low, daychange, daypercentchange in final_list %}
                       
             <td class ="align-middle">{{ coin_name }} </td>
@@ -83,6 +83,6 @@
   </div>
       
  
-      
-
+ 
+  {% endif  %}
 {% endblock %}

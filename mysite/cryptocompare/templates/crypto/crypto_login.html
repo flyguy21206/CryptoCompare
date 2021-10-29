@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+    <h1>Login to Crypto Made Easy</h1>
+ 
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label class="useremail" >Username:</label>
+      <input type="text" placeholder="UserName" class="form-control" name="username" autofocus="" required id="id_username">
+   </div>
+   <div class="form-group">
+      <label class="useremail" >Password:</label>
+      <input class="form-control" id="id_password" placeholder="Password" type="password" name="password" required>
+   </div>
+   <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">Login</button>
+</form>
+</div>
+</div> 
+</div>
+</div>
+{% endblock %}

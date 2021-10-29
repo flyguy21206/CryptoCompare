@@ -5,7 +5,7 @@
 
 
 {% block content %}
-
+{% if user.is_authenticated %}
 
 <div class="main">
     <!-- Create a Form -->
@@ -15,5 +15,5 @@
         <p>Are you sure you want to delete ?</p>
     <input type="submit" value="Confirm" />
 </form>
-
+{% endif %}
 {% endblock %}

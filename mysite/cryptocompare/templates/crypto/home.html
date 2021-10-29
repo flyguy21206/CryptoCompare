@@ -3,14 +3,14 @@
 {% block content %}
 
 
-<div class="d-grid gap-2 d-md-flex justify-content col-3 mx-auto">
-    <a class="nav-link active" aria-current="page" href="{% url 'cryptocompare:login' %}">
-      <button type="button" class="btn btn-danger" value="Login">Login</button>
+<div class="d-grid gap-2 col-6 mx-auto">
+    <a class="nav-link active" aria-current="page" href="{% url 'cryptocompare:crypto_login' %}">
+      <button type="submit" class="btn btn-primary btn-lg" value="Login">Login</button>
 
 </div>
-<div class="d-grid gap-2 d-md-flex justify-content col-3 mx-auto">
+<div class="d-grid gap-2 col-6 mx-auto">
     <a class="nav-link active" aria-current="page" href="{% url 'cryptocompare:register' %}">
-      <button type="button" class="btn btn-danger" value="Register">Register Now!</button>
+      <button type="submit" class="btn btn-primary btn-lg" value="Register">Register</button>
 </div>
 
 
@@ -26,12 +26,7 @@
                 
                
                 {% endif %}
-            </tbody>
 
 
-
-
-      </table>
-      </div>
 
   {% endblock %}
